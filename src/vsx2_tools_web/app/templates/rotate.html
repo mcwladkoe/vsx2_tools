@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ _('rotatePageTitle') }}</h1>
+    <div class="main-content">
+        <form
+            action="{{ url_for('rotate') }}"
+            share-url="{{ url_for('rotate', _external=True) }}"
+        >
+            <div class="form-group">
+                <label for="inputarea">{{ _('inputAreaLabel') }}</label>
+                <textarea
+                    id="inputarea"
+                    class="form-control inputarea"
+                    name="i"
+                    rows="3"
+                >{{ input_str }}</textarea>
+            </div>
+            <div class="row submit-container">
+                <input type="submit" class="col-12 btn btn-dark submit" value="{{ _('rotateActionButton') }}">
+                </input>
+            </div>
+            <div class="form-group">
+                <label for="outputarea">
+                    {{ _('rotateOutputAreaLabel') }}
+                </label>
+                <textarea
+                    class="form-control outputarea"
+                    rows="3"
+                    disabled="disabled"
+                >{{ result_str }}</textarea>
+            </div>
+            <button
+                class="btn btn-dark copy"
+                title="{{ _('copyButtonTitle') }}"
+                data-success="{{ _('successCopiedMessage') }}"
+            >
+                ⎘ {{ _('copyButtonLabel') }}
+            </button>
+            <button
+                class="btn btn-dark share"
+                title="{{ _('shareButtonTitle') }}"
+                data-success="{{ _('successCopiedMessage') }}"
+            >
+                {{ _('shareButtonLabel') }}
+            </button>
+        </form>
+        <p>
+            {{ _('docLinkLabel') }}
+            <a href="{{ url_for('rotate_doc') }}" target="_blank">
+                {{ _('docLinkLabel2') }}
+            </a>
+        </p>
+    </div>
+{% endblock %}

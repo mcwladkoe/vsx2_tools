@@ -1,0 +1,135 @@
+# English translations for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2019-10-16 01:44+0300\n"
+"PO-Revision-Date: 2019-08-26 02:50+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: src/vsx2_tools_web/app/server.py:43 src/vsx2_tools_web/app/server.py:82
+#: src/vsx2_tools_web/app/server.py:116
+msgid "textTooLong"
+msgstr "The text is too long."
+
+#: src/vsx2_tools_web/app/server.py:62
+#: src/vsx2_tools_web/app/templates/index.html:7
+#: src/vsx2_tools_web/app/templates/layout.html:4
+msgid "layoutPageTitle"
+msgstr "Change Layout"
+
+#: src/vsx2_tools_web/app/server.py:99
+#: src/vsx2_tools_web/app/templates/index.html:12
+#: src/vsx2_tools_web/app/templates/strikethrough.html:4
+msgid "strikethroughPageTitle"
+msgstr "Strikethrough text"
+
+#: src/vsx2_tools_web/app/server.py:131
+#: src/vsx2_tools_web/app/templates/index.html:17
+#: src/vsx2_tools_web/app/templates/rotate.html:4
+msgid "rotatePageTitle"
+msgstr "Rotate text"
+
+#: src/vsx2_tools_web/app/server.py:142
+msgid "rotateDocPageTitle"
+msgstr "Rotate text DOC"
+
+#: src/vsx2_tools_web/app/templates/layout.html:11
+#: src/vsx2_tools_web/app/templates/rotate.html:11
+#: src/vsx2_tools_web/app/templates/strikethrough.html:12
+msgid "inputAreaLabel"
+msgstr "Input text here"
+
+#: src/vsx2_tools_web/app/templates/layout.html:58
+msgid "layoutActionButton"
+msgstr "Change Layout"
+
+#: src/vsx2_tools_web/app/templates/layout.html:63
+msgid "layoutOutputAreaLabel"
+msgstr "Changed layout"
+
+#: src/vsx2_tools_web/app/templates/layout.html:73
+#: src/vsx2_tools_web/app/templates/rotate.html:35
+#: src/vsx2_tools_web/app/templates/strikethrough.html:32
+msgid "copyButtonTitle"
+msgstr "Copy to clipboard"
+
+#: src/vsx2_tools_web/app/templates/layout.html:74
+#: src/vsx2_tools_web/app/templates/layout.html:81
+#: src/vsx2_tools_web/app/templates/rotate.html:36
+#: src/vsx2_tools_web/app/templates/rotate.html:43
+#: src/vsx2_tools_web/app/templates/strikethrough.html:33
+#: src/vsx2_tools_web/app/templates/strikethrough.html:40
+msgid "successCopiedMessage"
+msgstr "Copied."
+
+#: src/vsx2_tools_web/app/templates/layout.html:76
+#: src/vsx2_tools_web/app/templates/rotate.html:38
+#: src/vsx2_tools_web/app/templates/strikethrough.html:35
+msgid "copyButtonLabel"
+msgstr "copy"
+
+#: src/vsx2_tools_web/app/templates/layout.html:80
+#: src/vsx2_tools_web/app/templates/rotate.html:42
+#: src/vsx2_tools_web/app/templates/strikethrough.html:39
+msgid "shareButtonTitle"
+msgstr "Copy to clipboard shared link"
+
+#: src/vsx2_tools_web/app/templates/layout.html:83
+#: src/vsx2_tools_web/app/templates/rotate.html:45
+#: src/vsx2_tools_web/app/templates/strikethrough.html:42
+msgid "shareButtonLabel"
+msgstr "share"
+
+#: src/vsx2_tools_web/app/templates/rotate.html:20
+msgid "rotateActionButton"
+msgstr "Rotate"
+
+#: src/vsx2_tools_web/app/templates/rotate.html:25
+msgid "rotateOutputAreaLabel"
+msgstr "Rotated text"
+
+#: src/vsx2_tools_web/app/templates/rotate.html:49
+msgid "docLinkLabel"
+msgstr ""
+"Text rotating supported for Russians (small) and English (large and "
+"small) letters. The full list is available"
+
+#: src/vsx2_tools_web/app/templates/rotate.html:51
+msgid "docLinkLabel2"
+msgstr "here"
+
+#: src/vsx2_tools_web/app/templates/rotate_doc.html:4
+msgid "docPageTitle"
+msgstr "Rotate text: symbol table"
+
+#: src/vsx2_tools_web/app/templates/rotate_doc.html:7
+msgid "rotateTextLabel"
+msgstr "You can rotate text"
+
+#: src/vsx2_tools_web/app/templates/rotate_doc.html:9
+msgid "rotateTextLabel2"
+msgstr "here"
+
+#: src/vsx2_tools_web/app/templates/rotate_doc.html:19
+msgid "symbolLabel"
+msgstr "Symbol"
+
+#: src/vsx2_tools_web/app/templates/rotate_doc.html:20
+msgid "rotatedSymbolLabel"
+msgstr "Rotated Symbol"
+
+#: src/vsx2_tools_web/app/templates/strikethrough.html:22
+msgid "strikethroughOutputAreaLabel"
+msgstr "Changed text"

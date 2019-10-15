@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ _('strikethroughPageTitle') }}</h1>
+    <div class="main-content">
+        <form
+            action="{{ url_for('strikethrough') }}"
+            share-url="{{ url_for('strikethrough', _external=True) }}"
+            data-type="add-symbol"
+        >
+            <div class="form-group">
+                <label for="inputarea">{{ _('inputAreaLabel') }}</label>
+                <textarea
+                    id="inputarea"
+                    class="form-control inputarea"
+                    name="i"
+                    rows="3"
+                >{{ input_str }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="outputarea">
+                    {{ _('strikethroughOutputAreaLabel') }}
+                </label>
+                <textarea
+                    class="form-control outputarea"
+                    rows="3"
+                    disabled="disabled"
+                >{{ result_str }}</textarea>
+            </div>
+            <button
+                class="btn btn-dark copy"
+                title="{{ _('copyButtonTitle') }}"
+                data-success="{{ _('successCopiedMessage') }}"
+            >
+                ⎘ {{ _('copyButtonLabel') }}
+            </button>
+            <button
+                class="btn btn-dark share"
+                title="{{ _('shareButtonTitle') }}"
+                data-success="{{ _('successCopiedMessage') }}"
+            >
+                {{ _('shareButtonLabel') }}
+            </button>
+        </form>
+    </div>
+{% endblock %}

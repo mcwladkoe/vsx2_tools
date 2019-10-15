@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+        <li>
+            <a href="{{ url_for('layout') }}">
+                {{ _('layoutPageTitle') }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('strikethrough') }}">
+                {{ _('strikethroughPageTitle') }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('rotate') }}">
+                {{ _('rotatePageTitle') }}
+            </a>
+        </li>
+    </ul>
+{% endblock %}

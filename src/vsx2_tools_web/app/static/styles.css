@@ -1,0 +1,23 @@
+h1 {
+    margin: 10px;
+}
+.main-content {
+    margin: 0 10px;
+}
+.submit-container {
+    margin: 0px 0px 10px;
+    text-align: center;
+}
+.submit {
+    padding: 10px;
+}
+.form-container {
+	margin-right: -10px;
+}
+.form-container .col-lg-2 {
+	padding-right: 10px;
+}
+.navbar-brand img {
+	width: 50px;
+	height: 50px;
+}

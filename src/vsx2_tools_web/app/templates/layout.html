@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ _('layoutPageTitle') }}</h1>
+    <div class="main-content">
+        <form
+            action="{{ url_for('layout') }}"
+            share-url="{{ url_for('layout', _external=True) }}"
+        >
+            <div class="form-group">
+                <label for="inputarea">{{ _('inputAreaLabel') }}</label>
+                <textarea
+                    id="inputarea"
+                    class="form-control inputarea"
+                    name="i"
+                    rows="3"
+                >{{ input_str }}</textarea>
+            </div>
+            <div class="row form-container justify-content-center align-items-center">
+                <div class="form-group col-lg-2">
+                    <select name="source" class="form-control">
+                        {% for layout in layouts %}
+                            <option
+                                value="{{ layout }}"
+                                {% if source == layout %}
+                                    selected="selected"
+                                {% endif %}
+                            >
+                                {{ ' '.join(layout.split('_')).upper() }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group col-lg-1 text-center">
+                    <span class="d-lg-block d-none">
+                        &rarr;
+                    </span>
+                    <span class="d-lg-none">
+                        &darr;
+                    </span>
+                </div>
+                <div class="form-group col-lg-2">
+                    <select name="destination" class="form-control">
+                        {% for layout in layouts %}
+                            <option
+                                value="{{ layout }}"
+                                {% if destination == layout %}
+                                    selected="selected"
+                                {% endif %}
+                            >
+                                {{ ' '.join(layout.split('_')).upper() }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row submit-container">
+                <input type="submit" class="col-12 btn btn-dark submit" value="{{ _('layoutActionButton') }}">
+                </input>
+            </div>
+            <div class="form-group">
+                <label for="outputarea">
+                    {{ _('layoutOutputAreaLabel') }}
+                </label>
+                <textarea
+                    class="form-control outputarea"
+                    rows="3"
+                    disabled="disabled"
+                >{{ result_str }}</textarea>
+            </div>
+            <button
+                class="btn btn-dark copy"
+                title="{{ _('copyButtonTitle') }}"
+                data-success="{{ _('successCopiedMessage') }}"
+            >
+                ⎘ {{ _('copyButtonLabel') }}
+            </button>
+            <button
+                class="btn btn-dark share"
+                title="{{ _('shareButtonTitle') }}"
+                data-success="{{ _('successCopiedMessage') }}"
+            >
+                {{ _('shareButtonLabel') }}
+            </button>
+        </form>
+    </div>
+{% endblock %}

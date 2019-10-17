@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-17 23:31+0300\n"
+"POT-Creation-Date: 2019-10-17 23:53+0300\n"
 "PO-Revision-Date: 2019-08-26 02:49+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -46,13 +46,14 @@ msgstr "Переворот текста"
 msgid "rotateDocPageTitle"
 msgstr "Переворот текста: таблица символов"
 
-#: src/vsx2_tools_web/app/templates/base.html:20
-msgid "mainPage"
-msgstr "Главная"
-
+#: src/vsx2_tools_web/app/templates/base.html:6
 #: src/vsx2_tools_web/app/templates/base.html:23
 msgid "utilsLabel"
 msgstr "Тулзовины"
+
+#: src/vsx2_tools_web/app/templates/base.html:20
+msgid "mainPage"
+msgstr "Главная"
 
 #: src/vsx2_tools_web/app/templates/layout.html:11
 #: src/vsx2_tools_web/app/templates/rotate.html:11

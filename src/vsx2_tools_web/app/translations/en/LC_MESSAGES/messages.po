@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-17 23:31+0300\n"
+"POT-Creation-Date: 2019-10-17 23:53+0300\n"
 "PO-Revision-Date: 2019-08-26 02:50+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -45,13 +45,14 @@ msgstr "Rotate text"
 msgid "rotateDocPageTitle"
 msgstr "Rotate text DOC"
 
+#: src/vsx2_tools_web/app/templates/base.html:6
+#: src/vsx2_tools_web/app/templates/base.html:23
+msgid "utilsLabel"
+msgstr "Tools"
+
 #: src/vsx2_tools_web/app/templates/base.html:20
 msgid "mainPage"
 msgstr "Home"
-
-#: src/vsx2_tools_web/app/templates/base.html:23
-msgid "utils"
-msgstr "Tools"
 
 #: src/vsx2_tools_web/app/templates/layout.html:11
 #: src/vsx2_tools_web/app/templates/rotate.html:11
@@ -141,3 +142,7 @@ msgstr "Rotated Symbol"
 #: src/vsx2_tools_web/app/templates/strikethrough.html:22
 msgid "strikethroughOutputAreaLabel"
 msgstr "Changed text"
+
+#~ msgid "utils"
+#~ msgstr "Tools"
+

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>VSX2 TOOLS {{ page_title }}</title>
+        <title>VSX2 {{ _('utilsLabel') }} {{ page_title }}</title>
         {% assets "css_all" %}
             <link rel="stylesheet" href="{{ ASSET_URL }}">
         {% endassets %}
@@ -20,7 +20,7 @@
                         <a class="nav-link" href="https://vsx2.com">{{ _('mainPage') }}</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('index') }}">{{ _('utils') }}</a>
+                        <a class="nav-link" href="{{ url_for('index') }}">{{ _('utilsLabel') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://cities.vsx2.com">OWM Cities</a>

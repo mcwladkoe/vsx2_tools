@@ -4,8 +4,9 @@
     <h1>{{ _('rotatePageTitle') }}</h1>
     <div class="main-content">
         <form
-            action="{{ url_for('rotate') }}"
-            share-url="{{ url_for('rotate', _external=True) }}"
+            class="js-form"
+            action="{{ url_for('rotator.index') }}"
+            share-url="{{ url_for('rotator.index', _external=True) }}"
         >
             <div class="form-group">
                 <label for="inputarea">{{ _('inputAreaLabel') }}</label>
@@ -17,8 +18,7 @@
                 >{{ input_str }}</textarea>
             </div>
             <div class="row submit-container">
-                <input type="submit" class="col-12 btn btn-dark submit" value="{{ _('rotateActionButton') }}">
-                </input>
+                <input type="submit" class="col-12 btn btn-dark submit" value="{{ _('rotateActionButton') }}"/>
             </div>
             <div class="form-group">
                 <label for="outputarea">
@@ -47,7 +47,7 @@
         </form>
         <p>
             {{ _('docLinkLabel') }}
-            <a href="{{ url_for('rotate_doc') }}" target="_blank">
+            <a href="{{ url_for('rotator.doc') }}" target="_blank">
                 {{ _('docLinkLabel2') }}
             </a>
         </p>

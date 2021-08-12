@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ _('memeGeneratorPageTitle') }} (BETA)</h1>
+    <div class="main-content">
+        {% if error_message %}
+            <div class="alert alert-danger" role="alert">
+                {{ error_message }}
+            </div>
+        {% endif %}
+        <form method="post" enctype='multipart/form-data'>
+            <div class="form-group">
+                <label for="text">{{ _('inputAreaLabel') }}</label>
+                <input
+                    id="text"
+                    class="form-control"
+                    name="text"
+                    value="{{ meme_text }}"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="image">{{ _('uploadImageFieldLabel') }} {{ _('sizeLimitLabel') }}</label>
+                <input
+                    id="image"
+                    class="form-control"
+                    name="image"
+                    type="file"
+                    accept="image/png, image/jpeg"
+                    value="{{ request.values.get('image') }}"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="color">{{ _('colorFieldLabel') }}</label>
+                <input type="color" id="color" name="text_color" value="{{ text_color }}" required>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="submit" class="col-12 btn btn-dark submit" value="{{ _('generateButtonLabel') }}"/>
+                </div>
+                <div class="col">
+                    <input type="submit" class="col-12 btn btn-dark submit" name="download" value="{{ _('downloadButtonLabel') }}"/>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

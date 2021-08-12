@@ -20,7 +20,7 @@
                         <a class="nav-link" href="https://vldsx.com">{{ _('mainPage') }}</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('index') }}">{{ _('utilsLabel') }}</a>
+                        <a class="nav-link" href="{{ url_for('base.index') }}">{{ _('utilsLabel') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://cities.vldsx.com">OWM Cities</a>
@@ -39,7 +39,7 @@
                         <div class="dropdown-menu" aria-labelledby="language-selector">
                             {% for lang in config.LANGUAGES %}
                                 {% if lang != locale|lower %}
-                                    <a class="dropdown-item" href="{{ url_for('setlang', locale=lang) }}">{{ lang.upper() }}</a>
+                                    <a class="dropdown-item" href="{{ url_for('base.setlang', locale=lang) }}">{{ lang.upper() }}</a>
                                 {% endif %}
                             {% endfor %}
                         </div>
@@ -54,5 +54,6 @@
         {% assets "js_all" %}
             <script type="text/javascript" src="{{ ASSET_URL }}"></script>
         {% endassets %}
+        {% block additional_js %}{% endblock %}
     </body>
 </html>

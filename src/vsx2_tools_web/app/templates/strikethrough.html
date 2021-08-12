@@ -4,8 +4,9 @@
     <h1>{{ _('strikethroughPageTitle') }}</h1>
     <div class="main-content">
         <form
-            action="{{ url_for('strikethrough') }}"
-            share-url="{{ url_for('strikethrough', _external=True) }}"
+            class="js-form"
+            action="{{ url_for('strikethrough.index') }}"
+            share-url="{{ url_for('strikethrough.index', _external=True) }}"
             data-type="add-symbol"
         >
             <div class="form-group">

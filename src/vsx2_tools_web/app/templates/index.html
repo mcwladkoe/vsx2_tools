@@ -3,18 +3,23 @@
 {% block content %}
     <ul>
         <li>
-            <a href="{{ url_for('layout') }}">
+            <a href="{{ url_for('layout.index') }}">
                 {{ _('layoutPageTitle') }}
             </a>
         </li>
         <li>
-            <a href="{{ url_for('strikethrough') }}">
+            <a href="{{ url_for('strikethrough.index') }}">
                 {{ _('strikethroughPageTitle') }}
             </a>
         </li>
         <li>
-            <a href="{{ url_for('rotate') }}">
+            <a href="{{ url_for('rotator.index') }}">
                 {{ _('rotatePageTitle') }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('role_formatter.index') }}">
+                {{ _('roleFormatterPageTitle') }}
             </a>
         </li>
     </ul>

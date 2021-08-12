@@ -21,3 +21,33 @@ h1 {
 	width: 50px;
 	height: 50px;
 }
+.custom-control-label span {
+    top: -2px;
+    position: absolute;
+    width: 100px;
+}
+
+.custom-control-label {
+    position: relative;
+    margin-bottom: 0;
+    top: 2px;
+}
+.custom-control-label::before {
+    position: absolute;
+    top: calc(0.25rem - 2px);
+}
+.custom-switch .custom-control-label::after {
+    top: calc(0.25rem);
+    left: calc(2px - 2.25rem);
+}
+
+.space-side-inverter {
+    margin-top: 5px;
+}
+
+.container-fluit .row {
+    margin-right: 0;
+}
+.container-fluit .col-custom {
+    padding-right: 0;
+}

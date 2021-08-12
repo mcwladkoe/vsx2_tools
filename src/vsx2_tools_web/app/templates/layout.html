@@ -4,8 +4,9 @@
     <h1>{{ _('layoutPageTitle') }}</h1>
     <div class="main-content">
         <form
-            action="{{ url_for('layout') }}"
-            share-url="{{ url_for('layout', _external=True) }}"
+            class="js-form"
+            action="{{ url_for('layout.index') }}"
+            share-url="{{ url_for('layout.index', _external=True) }}"
         >
             <div class="form-group">
                 <label for="inputarea">{{ _('inputAreaLabel') }}</label>

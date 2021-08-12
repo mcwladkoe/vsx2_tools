@@ -5,7 +5,7 @@
     <div class="main-content">
         <p>
             {{ _('rotateTextLabel') }}
-            <a href="{{ url_for('index') }}" target="_blank">
+            <a href="{{ url_for('rotator.index') }}" target="_blank">
                 {{ _('rotateTextLabel2') }}
             </a>
         </p>
@@ -16,8 +16,8 @@
             </colgroup>
             <thead>
                 <tr>
-                    <th>{{ _('symbolLabel') }}Символ</th>
-                    <th>{{ _('rotatedSymbolLabel') }}Перевернутый Символ</th>
+                    <th>{{ _('symbolLabel') }}</th>
+                    <th>{{ _('rotatedSymbolLabel') }}</th>
                 </tr>
             </thead>
             <tbody>

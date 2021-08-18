@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-12 23:15+0300\n"
+"POT-Creation-Date: 2021-08-18 23:49+0300\n"
 "PO-Revision-Date: 2019-08-26 02:50+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -20,6 +20,7 @@ msgstr ""
 
 #: src/vsx2_tools_web/app/templates/base.html:6
 #: src/vsx2_tools_web/app/templates/base.html:23
+#: src/vsx2_tools_web/app/templates/base.html:61
 msgid "utilsLabel"
 msgstr "Tools"
 
@@ -35,76 +36,68 @@ msgstr "Change Layout"
 
 #: src/vsx2_tools_web/app/templates/index.html:12
 #: src/vsx2_tools_web/app/templates/strikethrough.html:4
-#: src/vsx2_tools_web/app/views/strikethrough.py:35
+#: src/vsx2_tools_web/app/views/strikethrough.py:30
 msgid "strikethroughPageTitle"
 msgstr "Strikethrough text"
 
 #: src/vsx2_tools_web/app/templates/index.html:17
 #: src/vsx2_tools_web/app/templates/rotate.html:4
-#: src/vsx2_tools_web/app/views/rotate.py:34
+#: src/vsx2_tools_web/app/views/rotate.py:36
 msgid "rotatePageTitle"
 msgstr "Rotate text"
 
 #: src/vsx2_tools_web/app/templates/index.html:22
 #: src/vsx2_tools_web/app/templates/role_formatter.html:4
-#: src/vsx2_tools_web/app/views/role_formatter.py:12
+#: src/vsx2_tools_web/app/views/role_formatter.py:11
 msgid "roleFormatterPageTitle"
 msgstr "Discord Role Formatter"
 
-#: src/vsx2_tools_web/app/templates/layout.html:12
-#: src/vsx2_tools_web/app/templates/meme_generator.html:13
+#: src/vsx2_tools_web/app/templates/layout.html:8
+#: src/vsx2_tools_web/app/templates/rotate.html:8
+#: src/vsx2_tools_web/app/templates/strikethrough.html:8
+msgid "deprecationWarning"
+msgstr "The sharing feature will be disabled in one of the following releases."
+
+#: src/vsx2_tools_web/app/templates/layout.html:17
+#: src/vsx2_tools_web/app/templates/meme_generator.html:14
 #: src/vsx2_tools_web/app/templates/role_formatter.html:7
-#: src/vsx2_tools_web/app/templates/rotate.html:12
-#: src/vsx2_tools_web/app/templates/strikethrough.html:13
+#: src/vsx2_tools_web/app/templates/rotate.html:17
+#: src/vsx2_tools_web/app/templates/strikethrough.html:18
 msgid "inputAreaLabel"
 msgstr "Input text here"
 
-#: src/vsx2_tools_web/app/templates/layout.html:59
+#: src/vsx2_tools_web/app/templates/layout.html:37
 msgid "layoutActionButton"
 msgstr "Change Layout"
 
-#: src/vsx2_tools_web/app/templates/layout.html:64
+#: src/vsx2_tools_web/app/templates/layout.html:41
 msgid "layoutOutputAreaLabel"
 msgstr "Changed layout"
 
-#: src/vsx2_tools_web/app/templates/layout.html:74
+#: src/vsx2_tools_web/app/templates/layout.html:53
 #: src/vsx2_tools_web/app/templates/role_formatter.html:67
-#: src/vsx2_tools_web/app/templates/rotate.html:35
-#: src/vsx2_tools_web/app/templates/strikethrough.html:33
+#: src/vsx2_tools_web/app/templates/rotate.html:36
+#: src/vsx2_tools_web/app/templates/strikethrough.html:34
 msgid "copyButtonTitle"
 msgstr "Copy to clipboard"
 
-#: src/vsx2_tools_web/app/templates/layout.html:75
-#: src/vsx2_tools_web/app/templates/layout.html:82
+#: src/vsx2_tools_web/app/templates/layout.html:54
 #: src/vsx2_tools_web/app/templates/role_formatter.html:69
-#: src/vsx2_tools_web/app/templates/rotate.html:36
-#: src/vsx2_tools_web/app/templates/rotate.html:43
-#: src/vsx2_tools_web/app/templates/strikethrough.html:34
-#: src/vsx2_tools_web/app/templates/strikethrough.html:41
+#: src/vsx2_tools_web/app/templates/rotate.html:37
+#: src/vsx2_tools_web/app/templates/rotate.html:44
+#: src/vsx2_tools_web/app/templates/strikethrough.html:35
 msgid "successCopiedMessage"
 msgstr "Copied."
 
-#: src/vsx2_tools_web/app/templates/layout.html:77
+#: src/vsx2_tools_web/app/templates/layout.html:56
 #: src/vsx2_tools_web/app/templates/role_formatter.html:71
-#: src/vsx2_tools_web/app/templates/rotate.html:38
-#: src/vsx2_tools_web/app/templates/strikethrough.html:36
+#: src/vsx2_tools_web/app/templates/rotate.html:39
+#: src/vsx2_tools_web/app/templates/strikethrough.html:37
 msgid "copyButtonLabel"
 msgstr "copy"
 
-#: src/vsx2_tools_web/app/templates/layout.html:81
-#: src/vsx2_tools_web/app/templates/rotate.html:42
-#: src/vsx2_tools_web/app/templates/strikethrough.html:40
-msgid "shareButtonTitle"
-msgstr "Copy to clipboard shared link"
-
-#: src/vsx2_tools_web/app/templates/layout.html:84
-#: src/vsx2_tools_web/app/templates/rotate.html:45
-#: src/vsx2_tools_web/app/templates/strikethrough.html:43
-msgid "shareButtonLabel"
-msgstr "share"
-
 #: src/vsx2_tools_web/app/templates/meme_generator.html:4
-#: src/vsx2_tools_web/app/views/meme_generator.py:124
+#: src/vsx2_tools_web/app/views/meme_generator.py:129
 msgid "memeGeneratorPageTitle"
 msgstr "Meme generator"
 
@@ -116,15 +109,15 @@ msgstr "Upload image"
 msgid "sizeLimitLabel"
 msgstr "(Max 2MB)"
 
-#: src/vsx2_tools_web/app/templates/meme_generator.html:35
+#: src/vsx2_tools_web/app/templates/meme_generator.html:32
 msgid "colorFieldLabel"
 msgstr "Text Color"
 
-#: src/vsx2_tools_web/app/templates/meme_generator.html:40
+#: src/vsx2_tools_web/app/templates/meme_generator.html:42
 msgid "generateButtonLabel"
 msgstr "Generate"
 
-#: src/vsx2_tools_web/app/templates/meme_generator.html:43
+#: src/vsx2_tools_web/app/templates/meme_generator.html:45
 msgid "downloadButtonLabel"
 msgstr "Download"
 
@@ -160,13 +153,21 @@ msgstr "Rotate"
 msgid "rotateOutputAreaLabel"
 msgstr "Rotated text"
 
-#: src/vsx2_tools_web/app/templates/rotate.html:49
+#: src/vsx2_tools_web/app/templates/rotate.html:43
+msgid "shareButtonTitle"
+msgstr "Copy to clipboard shared link"
+
+#: src/vsx2_tools_web/app/templates/rotate.html:46
+msgid "shareButtonLabel"
+msgstr "share"
+
+#: src/vsx2_tools_web/app/templates/rotate.html:50
 msgid "docLinkLabel"
 msgstr ""
 "Text rotating supported for Russians (small) and English (large and "
 "small) letters. The full list is available"
 
-#: src/vsx2_tools_web/app/templates/rotate.html:51
+#: src/vsx2_tools_web/app/templates/rotate.html:52
 msgid "docLinkLabel2"
 msgstr "here"
 
@@ -194,18 +195,9 @@ msgstr "Rotated Symbol"
 msgid "strikethroughOutputAreaLabel"
 msgstr "Changed text"
 
-#: src/vsx2_tools_web/app/views/layout.py:21
-#: src/vsx2_tools_web/app/views/rotate.py:19
-#: src/vsx2_tools_web/app/views/strikethrough.py:18
-msgid "textTooLong"
-msgstr "The text is too long."
-
-#: src/vsx2_tools_web/app/views/rotate.py:45
+#: src/vsx2_tools_web/app/views/rotate.py:42
 msgid "rotateDocPageTitle"
 msgstr "Rotate text DOC"
-
-#~ msgid "utils"
-#~ msgstr "Tools"
 
 #~ msgid "joinOurDiscordServerLabel"
 #~ msgstr "Join Our Discord Server"

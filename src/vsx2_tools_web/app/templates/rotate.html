@@ -3,19 +3,19 @@
 {% block content %}
     <h1>{{ _('rotatePageTitle') }}</h1>
     <div class="main-content">
+        {% if request.method == 'GET' and request.values.get('i') %}
+            <div class="alert alert-warning" role="alert">
+                {{ _('deprecationWarning') }}
+            </div>
+        {% endif %}
         <form
             class="js-form"
             action="{{ url_for('rotator.index') }}"
-            share-url="{{ url_for('rotator.index', _external=True) }}"
         >
+            {{ form.csrf_token }}
             <div class="form-group">
-                <label for="inputarea">{{ _('inputAreaLabel') }}</label>
-                <textarea
-                    id="inputarea"
-                    class="form-control inputarea"
-                    name="i"
-                    rows="3"
-                >{{ input_str }}</textarea>
+                <label for="input_">{{ _("inputAreaLabel") }}</label>
+                {{ form.input_(class="form-control inputarea", rows="3") }}
             </div>
             <div class="row submit-container">
                 <input type="submit" class="col-12 btn btn-dark submit" value="{{ _('rotateActionButton') }}"/>
@@ -27,8 +27,9 @@
                 <textarea
                     class="form-control outputarea"
                     rows="3"
+                    id="outputarea"
                     disabled="disabled"
-                >{{ result_str }}</textarea>
+                ></textarea>
             </div>
             <button
                 class="btn btn-dark copy"
@@ -52,4 +53,18 @@
             </a>
         </p>
     </div>
+{% endblock %}
+
+{% block additional_js %}
+    {% if request.method == 'GET' and request.values.get('i') %}
+        <script>
+            $(document).ready(() => {
+                setTimeout(() => {
+                    const $input = $('#input_');
+                    $input.val("{{ request.values.get('i') }}");
+                    $input.submit();
+                }, 100);
+            });
+        </script>
+    {% endif %}
 {% endblock %}

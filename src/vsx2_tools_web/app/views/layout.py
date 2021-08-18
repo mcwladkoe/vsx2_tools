@@ -1,46 +1,40 @@
-from flask_babel import _, get_locale
+from flask_babel import _
 
 from flask import request, render_template, json, Blueprint, Response
 
-from vsx2_change_layout import change_layout, get_all_layouts
+from vsx2_change_layout import change_layout
+from ..models.forms import LayoutForm
 
-layout = Blueprint('layout', __name__, url_prefix='/layout')
+
+layout = Blueprint("layout", __name__, url_prefix="/layout")
 
 
-@layout.route('/', methods=["get", "post"])
+@layout.route("/", methods=["get", "post"])
 def index():
-    input_str = request.values.get('i') or ''
-    source = request.values.get('source')
-    destination = request.values.get('destination')
-    if not input_str and request.method == 'POST':
-        return Response(status=400)
-    if input_str and len(input_str) > 10000 and request.method == 'POST':
-        return Response(
-            status=400,
-            response=_("textTooLong")
-        )
-    result_str = ''
-    if input_str or source or destination:
+    form = LayoutForm()
+    if form.validate_on_submit():
         result_str = change_layout(
-            source_str=input_str,
-            source_layout=source,
-            destination_layout=destination
+            source_str=form.input_.data,
+            source_layout=form.source.data,
+            destination_layout=form.destination.data,
         )
-    if request.method == 'POST':
         return Response(
-            response=json.dumps({
-                "result": result_str,
-            }),
+            response=json.dumps(
+                {
+                    "result": result_str,
+                }
+            ),
             status=200,
-            mimetype='application/json'
+            mimetype="application/json",
         )
-    return render_template(
-        "layout.html",
-        page_title=_('layoutPageTitle'),
-        layouts=get_all_layouts(),
-        locale=get_locale(),
-        input_str=input_str,
-        source=source,
-        destination=destination,
-        result_str=result_str
-    )
+    if request.method == "POST":
+        return Response(
+            response=json.dumps(
+                {
+                    "errors": form.errors,
+                }
+            ),
+            status=400,
+            mimetype="application/json",
+        )
+    return render_template("layout.html", page_title=_("layoutPageTitle"), form=form)

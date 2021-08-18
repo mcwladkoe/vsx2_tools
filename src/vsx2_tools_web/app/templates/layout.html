@@ -3,34 +3,23 @@
 {% block content %}
     <h1>{{ _('layoutPageTitle') }}</h1>
     <div class="main-content">
+        {% if request.method == 'GET' and (request.values.get('i') or request.values.get('source') or request.values.get('destination')) %}
+            <div class="alert alert-warning" role="alert">
+                {{ _('deprecationWarning') }}
+            </div>
+        {% endif %}
         <form
             class="js-form"
             action="{{ url_for('layout.index') }}"
-            share-url="{{ url_for('layout.index', _external=True) }}"
         >
+            {{ form.csrf_token }}
             <div class="form-group">
-                <label for="inputarea">{{ _('inputAreaLabel') }}</label>
-                <textarea
-                    id="inputarea"
-                    class="form-control inputarea"
-                    name="i"
-                    rows="3"
-                >{{ input_str }}</textarea>
+                <label for="input_">{{ _("inputAreaLabel") }}</label>
+                {{ form.input_(class="form-control inputarea", rows="3") }}
             </div>
             <div class="row form-container justify-content-center align-items-center">
                 <div class="form-group col-lg-2">
-                    <select name="source" class="form-control">
-                        {% for layout in layouts %}
-                            <option
-                                value="{{ layout }}"
-                                {% if source == layout %}
-                                    selected="selected"
-                                {% endif %}
-                            >
-                                {{ ' '.join(layout.split('_')).upper() }}
-                            </option>
-                        {% endfor %}
-                    </select>
+                    {{ form.source(class="form-control") }}
                 </div>
                 <div class="form-group col-lg-1 text-center">
                     <span class="d-lg-block d-none">
@@ -41,23 +30,11 @@
                     </span>
                 </div>
                 <div class="form-group col-lg-2">
-                    <select name="destination" class="form-control">
-                        {% for layout in layouts %}
-                            <option
-                                value="{{ layout }}"
-                                {% if destination == layout %}
-                                    selected="selected"
-                                {% endif %}
-                            >
-                                {{ ' '.join(layout.split('_')).upper() }}
-                            </option>
-                        {% endfor %}
-                    </select>
+                    {{ form.destination(class="form-control") }}
                 </div>
             </div>
             <div class="row submit-container">
-                <input type="submit" class="col-12 btn btn-dark submit" value="{{ _('layoutActionButton') }}">
-                </input>
+                <input type="submit" class="col-12 btn btn-dark submit" value="{{ _('layoutActionButton') }}"/>
             </div>
             <div class="form-group">
                 <label for="outputarea">
@@ -66,8 +43,10 @@
                 <textarea
                     class="form-control outputarea"
                     rows="3"
+                    id="outputarea"
+                    id="outputarea"
                     disabled="disabled"
-                >{{ result_str }}</textarea>
+                ></textarea>
             </div>
             <button
                 class="btn btn-dark copy"
@@ -76,13 +55,22 @@
             >
                 ⎘ {{ _('copyButtonLabel') }}
             </button>
-            <button
-                class="btn btn-dark share"
-                title="{{ _('shareButtonTitle') }}"
-                data-success="{{ _('successCopiedMessage') }}"
-            >
-                {{ _('shareButtonLabel') }}
-            </button>
         </form>
     </div>
+{% endblock %}
+
+{% block additional_js %}
+    {% if request.method == 'GET' and (request.values.get('i') or request.values.get('source') or request.values.get('destination')) %}
+        <script>
+            $(document).ready(() => {
+                setTimeout(() => {
+                    const $input = $('#input_');
+                    $input.val("{{ request.values.get('i') }}");
+                    $('#source').val("{{ request.values.get('source') }}");
+                    $('#destination').val("{{ request.values.get('destination') }}");
+                    $('form').submit();
+                }, 100);
+            });
+        </script>
+    {% endif %}
 {% endblock %}

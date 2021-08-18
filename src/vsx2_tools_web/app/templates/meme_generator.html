@@ -9,32 +9,34 @@
             </div>
         {% endif %}
         <form method="post" enctype='multipart/form-data'>
+            {{ form.csrf_token }}
             <div class="form-group">
-                <label for="text">{{ _('inputAreaLabel') }}</label>
-                <input
-                    id="text"
-                    class="form-control"
-                    name="text"
-                    value="{{ meme_text }}"
-                    required
-                />
+                <label for="text">{{ _("inputAreaLabel") }}</label>
+                {{ form.text(class="form-control") }}
             </div>
+            {% if form.text.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ '\n'.join(form.text.errors) }}
+                </div>
+            {% endif %}
             <div class="form-group">
-                <label for="image">{{ _('uploadImageFieldLabel') }} {{ _('sizeLimitLabel') }}</label>
-                <input
-                    id="image"
-                    class="form-control"
-                    name="image"
-                    type="file"
-                    accept="image/png, image/jpeg"
-                    value="{{ request.values.get('image') }}"
-                    required
-                />
+                <label for="image">{{ _("uploadImageFieldLabel") }} {{ _("sizeLimitLabel") }}</label>
+                {{ form.image(accept="image/png, image/jpeg", class="form-control") }}
             </div>
+            {% if form.image.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ '\n'.join(form.image.errors) }}
+                </div>
+            {% endif %}
             <div class="form-group">
-                <label for="color">{{ _('colorFieldLabel') }}</label>
-                <input type="color" id="color" name="text_color" value="{{ text_color }}" required>
+                <label for="text_color">{{ _("colorFieldLabel") }}</label>
+                {{ form.text_color() }}
             </div>
+            {% if form.text_color.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ '\n'.join(form.text_color.errors) }}
+                </div>
+            {% endif %}
             <div class="row">
                 <div class="col">
                     <input type="submit" class="col-12 btn btn-dark submit" value="{{ _('generateButtonLabel') }}"/>

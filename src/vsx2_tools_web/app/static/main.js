@@ -32,21 +32,6 @@
                 type: 'success'
             });
         });
-        self.$form_el.find('.share').on('click', function (ev) {
-            ev.preventDefault();
-            const formatted_params = self.$form_el.serialize();
-            const el = document.createElement('textarea');
-            el.value = (self.$form_el.attr("share-url") || '') + '?' + formatted_params;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            $.notify({
-                message: $(this).data('success'),
-            }, {
-                type: 'success'
-            });
-        });
     };
 
     pageFormProcessor.prototype.processAndChange = function (event) {

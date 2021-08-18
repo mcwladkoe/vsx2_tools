@@ -3,20 +3,20 @@
 {% block content %}
     <h1>{{ _('strikethroughPageTitle') }}</h1>
     <div class="main-content">
+        {% if request.method == 'GET' and request.values.get('i') %}
+            <div class="alert alert-warning" role="alert">
+                {{ _('deprecationWarning') }}
+            </div>
+        {% endif %}
         <form
             class="js-form"
             action="{{ url_for('strikethrough.index') }}"
-            share-url="{{ url_for('strikethrough.index', _external=True) }}"
             data-type="add-symbol"
         >
+            {{ form.csrf_token }}
             <div class="form-group">
-                <label for="inputarea">{{ _('inputAreaLabel') }}</label>
-                <textarea
-                    id="inputarea"
-                    class="form-control inputarea"
-                    name="i"
-                    rows="3"
-                >{{ input_str }}</textarea>
+                <label for="input_">{{ _("inputAreaLabel") }}</label>
+                {{ form.input_(class="form-control inputarea", rows="3") }}
             </div>
             <div class="form-group">
                 <label for="outputarea">
@@ -25,8 +25,9 @@
                 <textarea
                     class="form-control outputarea"
                     rows="3"
+                    id="outputarea"
                     disabled="disabled"
-                >{{ result_str }}</textarea>
+                ></textarea>
             </div>
             <button
                 class="btn btn-dark copy"
@@ -35,13 +36,20 @@
             >
                 ⎘ {{ _('copyButtonLabel') }}
             </button>
-            <button
-                class="btn btn-dark share"
-                title="{{ _('shareButtonTitle') }}"
-                data-success="{{ _('successCopiedMessage') }}"
-            >
-                {{ _('shareButtonLabel') }}
-            </button>
         </form>
     </div>
+{% endblock %}
+
+{% block additional_js %}
+    {% if request.method == 'GET' and request.values.get('i') %}
+        <script>
+            $(document).ready(() => {
+                setTimeout(() => {
+                    const $input = $('#input_');
+                    $input.val("{{ request.values.get('i') }}");
+                    $input.keyup();
+                }, 100);
+            });
+        </script>
+    {% endif %}
 {% endblock %}

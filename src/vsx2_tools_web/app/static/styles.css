@@ -51,3 +51,9 @@ h1 {
 .container-fluit .col-custom {
     padding-right: 0;
 }
+
+.container-fluit {
+    background-color: white;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}

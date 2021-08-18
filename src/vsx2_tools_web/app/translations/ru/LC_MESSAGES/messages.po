@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-12 23:15+0300\n"
+"POT-Creation-Date: 2021-08-18 23:49+0300\n"
 "PO-Revision-Date: 2019-08-26 02:49+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -21,6 +21,7 @@ msgstr ""
 
 #: src/vsx2_tools_web/app/templates/base.html:6
 #: src/vsx2_tools_web/app/templates/base.html:23
+#: src/vsx2_tools_web/app/templates/base.html:61
 msgid "utilsLabel"
 msgstr "Тулзовины"
 
@@ -36,76 +37,68 @@ msgstr "Смена раскладки"
 
 #: src/vsx2_tools_web/app/templates/index.html:12
 #: src/vsx2_tools_web/app/templates/strikethrough.html:4
-#: src/vsx2_tools_web/app/views/strikethrough.py:35
+#: src/vsx2_tools_web/app/views/strikethrough.py:30
 msgid "strikethroughPageTitle"
 msgstr "Зачёркнутый текст"
 
 #: src/vsx2_tools_web/app/templates/index.html:17
 #: src/vsx2_tools_web/app/templates/rotate.html:4
-#: src/vsx2_tools_web/app/views/rotate.py:34
+#: src/vsx2_tools_web/app/views/rotate.py:36
 msgid "rotatePageTitle"
 msgstr "Переворот текста"
 
 #: src/vsx2_tools_web/app/templates/index.html:22
 #: src/vsx2_tools_web/app/templates/role_formatter.html:4
-#: src/vsx2_tools_web/app/views/role_formatter.py:12
+#: src/vsx2_tools_web/app/views/role_formatter.py:11
 msgid "roleFormatterPageTitle"
 msgstr "Discord Роль Формат"
 
-#: src/vsx2_tools_web/app/templates/layout.html:12
-#: src/vsx2_tools_web/app/templates/meme_generator.html:13
+#: src/vsx2_tools_web/app/templates/layout.html:8
+#: src/vsx2_tools_web/app/templates/rotate.html:8
+#: src/vsx2_tools_web/app/templates/strikethrough.html:8
+msgid "deprecationWarning"
+msgstr "Функция 'поделиться' будет отключена в одном из следующих релизов"
+
+#: src/vsx2_tools_web/app/templates/layout.html:17
+#: src/vsx2_tools_web/app/templates/meme_generator.html:14
 #: src/vsx2_tools_web/app/templates/role_formatter.html:7
-#: src/vsx2_tools_web/app/templates/rotate.html:12
-#: src/vsx2_tools_web/app/templates/strikethrough.html:13
+#: src/vsx2_tools_web/app/templates/rotate.html:17
+#: src/vsx2_tools_web/app/templates/strikethrough.html:18
 msgid "inputAreaLabel"
 msgstr "Введите текст тут"
 
-#: src/vsx2_tools_web/app/templates/layout.html:59
+#: src/vsx2_tools_web/app/templates/layout.html:37
 msgid "layoutActionButton"
 msgstr "Сменить"
 
-#: src/vsx2_tools_web/app/templates/layout.html:64
+#: src/vsx2_tools_web/app/templates/layout.html:41
 msgid "layoutOutputAreaLabel"
 msgstr "Исправленный текст"
 
-#: src/vsx2_tools_web/app/templates/layout.html:74
+#: src/vsx2_tools_web/app/templates/layout.html:53
 #: src/vsx2_tools_web/app/templates/role_formatter.html:67
-#: src/vsx2_tools_web/app/templates/rotate.html:35
-#: src/vsx2_tools_web/app/templates/strikethrough.html:33
+#: src/vsx2_tools_web/app/templates/rotate.html:36
+#: src/vsx2_tools_web/app/templates/strikethrough.html:34
 msgid "copyButtonTitle"
 msgstr "Скопировать в буфер"
 
-#: src/vsx2_tools_web/app/templates/layout.html:75
-#: src/vsx2_tools_web/app/templates/layout.html:82
+#: src/vsx2_tools_web/app/templates/layout.html:54
 #: src/vsx2_tools_web/app/templates/role_formatter.html:69
-#: src/vsx2_tools_web/app/templates/rotate.html:36
-#: src/vsx2_tools_web/app/templates/rotate.html:43
-#: src/vsx2_tools_web/app/templates/strikethrough.html:34
-#: src/vsx2_tools_web/app/templates/strikethrough.html:41
+#: src/vsx2_tools_web/app/templates/rotate.html:37
+#: src/vsx2_tools_web/app/templates/rotate.html:44
+#: src/vsx2_tools_web/app/templates/strikethrough.html:35
 msgid "successCopiedMessage"
 msgstr "Скопировано"
 
-#: src/vsx2_tools_web/app/templates/layout.html:77
+#: src/vsx2_tools_web/app/templates/layout.html:56
 #: src/vsx2_tools_web/app/templates/role_formatter.html:71
-#: src/vsx2_tools_web/app/templates/rotate.html:38
-#: src/vsx2_tools_web/app/templates/strikethrough.html:36
+#: src/vsx2_tools_web/app/templates/rotate.html:39
+#: src/vsx2_tools_web/app/templates/strikethrough.html:37
 msgid "copyButtonLabel"
 msgstr "скопировать"
 
-#: src/vsx2_tools_web/app/templates/layout.html:81
-#: src/vsx2_tools_web/app/templates/rotate.html:42
-#: src/vsx2_tools_web/app/templates/strikethrough.html:40
-msgid "shareButtonTitle"
-msgstr "скопировать ссылку на текст"
-
-#: src/vsx2_tools_web/app/templates/layout.html:84
-#: src/vsx2_tools_web/app/templates/rotate.html:45
-#: src/vsx2_tools_web/app/templates/strikethrough.html:43
-msgid "shareButtonLabel"
-msgstr "поделиться"
-
 #: src/vsx2_tools_web/app/templates/meme_generator.html:4
-#: src/vsx2_tools_web/app/views/meme_generator.py:124
+#: src/vsx2_tools_web/app/views/meme_generator.py:129
 msgid "memeGeneratorPageTitle"
 msgstr "Мем генератор"
 
@@ -117,15 +110,15 @@ msgstr "Выберите картинку"
 msgid "sizeLimitLabel"
 msgstr "(Макс. 2МБ)"
 
-#: src/vsx2_tools_web/app/templates/meme_generator.html:35
+#: src/vsx2_tools_web/app/templates/meme_generator.html:32
 msgid "colorFieldLabel"
 msgstr "Цвет текста"
 
-#: src/vsx2_tools_web/app/templates/meme_generator.html:40
+#: src/vsx2_tools_web/app/templates/meme_generator.html:42
 msgid "generateButtonLabel"
 msgstr "Генерировать"
 
-#: src/vsx2_tools_web/app/templates/meme_generator.html:43
+#: src/vsx2_tools_web/app/templates/meme_generator.html:45
 msgid "downloadButtonLabel"
 msgstr "Скачать"
 
@@ -161,13 +154,21 @@ msgstr "Перевернуть"
 msgid "rotateOutputAreaLabel"
 msgstr "Перевернутый текст"
 
-#: src/vsx2_tools_web/app/templates/rotate.html:49
+#: src/vsx2_tools_web/app/templates/rotate.html:43
+msgid "shareButtonTitle"
+msgstr "скопировать ссылку на текст"
+
+#: src/vsx2_tools_web/app/templates/rotate.html:46
+msgid "shareButtonLabel"
+msgstr "поделиться"
+
+#: src/vsx2_tools_web/app/templates/rotate.html:50
 msgid "docLinkLabel"
 msgstr ""
 "Переворот поддерживается для русских (маленьких) и английских (больших и "
 "маленьких) букв. Полный список доступен в"
 
-#: src/vsx2_tools_web/app/templates/rotate.html:51
+#: src/vsx2_tools_web/app/templates/rotate.html:52
 msgid "docLinkLabel2"
 msgstr "таблице"
 
@@ -195,13 +196,7 @@ msgstr "Перевернутый Символ"
 msgid "strikethroughOutputAreaLabel"
 msgstr "Зачёркнутый текст"
 
-#: src/vsx2_tools_web/app/views/layout.py:21
-#: src/vsx2_tools_web/app/views/rotate.py:19
-#: src/vsx2_tools_web/app/views/strikethrough.py:18
-msgid "textTooLong"
-msgstr "Текст слишком длинный."
-
-#: src/vsx2_tools_web/app/views/rotate.py:45
+#: src/vsx2_tools_web/app/views/rotate.py:42
 msgid "rotateDocPageTitle"
 msgstr "Переворот текста: таблица символов"
 

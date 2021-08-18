@@ -4,11 +4,13 @@ import platform
 from typing import Tuple, Optional
 
 from PIL import Image, ImageDraw, ImageFont, ImageColor
-from flask import Blueprint, render_template, request, abort, Request, send_file
-from flask_babel import _, get_locale
+from flask import Blueprint, render_template, request, abort, send_file
+from flask_babel import _
 from pyclamd import ClamdUnixSocket, ConnectionError as ClamdConnectionError
 
-meme_generator = Blueprint('meme_generator', __name__, url_prefix='/meme_generator')
+from ..models.forms import MemeGeneratorForm
+
+meme_generator = Blueprint("meme_generator", __name__, url_prefix="/meme_generator")
 
 
 class MemeGeneratorValidationError(Exception):
@@ -29,15 +31,19 @@ class MemeGenerator:
         self.__max_font_size_cached: Optional[int] = None
         self.__load_font()
         self.__load_text_size()
-        self.__text_color = ImageColor.getcolor(text_color, 'RGB')
+        self.__text_color = text_color  # ImageColor.getcolor(text_color, "RGB")
 
     def __load_font(self):
         current_file_path = os.path.dirname(os.path.abspath(__file__))
-        path_to_font = os.path.join(current_file_path, "..", "static", "fonts", "Lobster-Regular.ttf")
+        path_to_font = os.path.join(
+            current_file_path, "..", "static", "fonts", "Lobster-Regular.ttf"
+        )
         self.__font: ImageFont = ImageFont.truetype(path_to_font, self.__font_size)
 
     def __load_text_size(self):
-        self.__text_width, self.__text_height = self.__draw.textsize(self.__text, self.__font)
+        self.__text_width, self.__text_height = self.__draw.textsize(
+            self.__text, self.__font
+        )
 
     @property
     def __font_size(self) -> int:
@@ -53,7 +59,9 @@ class MemeGenerator:
 
         size = int(self.__image_height / 10)
         if size < 5:
-            raise MemeGeneratorValidationError('invalid image size:( we cannot use this image as template')
+            raise MemeGeneratorValidationError(
+                "invalid image size:( we cannot use this image as template"
+            )
 
         self.__max_font_size_cached = size
 
@@ -66,7 +74,9 @@ class MemeGenerator:
         return x, y
 
     def __call__(self) -> Tuple[BytesIO, str, str]:
-        self.__draw.text(self.__text_position, self.__text, self.__text_color, font=self.__font)
+        self.__draw.text(
+            self.__text_position, self.__text, self.__text_color, font=self.__font
+        )
 
         img_io: BytesIO = BytesIO()
         self.__image.save(img_io, self.__image.format, quality=100)
@@ -75,55 +85,52 @@ class MemeGenerator:
         return img_io, self.__image.get_format_mimetype(), self.__image.format.lower()
 
 
-def meme_generator_request_processor(flask_request: Request) -> Tuple[BytesIO, str, str]:
-    if 'image' not in flask_request.files:
-        raise MemeGeneratorValidationError('Please select image')
-    text = flask_request.values.get('text')
-    if not text:
-        raise MemeGeneratorValidationError('Please input text')
-    text_color = flask_request.values.get('text_color') or '#ffffff'
-
-    f = flask_request.files['image']
-
-    if platform.system() == 'Linux':
-        socket = ClamdUnixSocket()
-        try:
-            result = socket.scan_stream(f)
-        except ClamdConnectionError:
-            raise MemeGeneratorValidationError('Something went wrong :( Please contact me at me@vldsx.com',
-                                               status_code=500)
-        finally:
-            socket._close_socket()
-        if result:
-            raise MemeGeneratorValidationError('Virus detected in file :(')
-    return MemeGenerator(f, text, text_color)()
-
-
-@meme_generator.route('/', methods=["get", "post"])
+@meme_generator.route("/", methods=["get", "post"])
 def index():
-    if request.values.get('secret') != 'hb.png112233':
+    if request.values.get("secret") != "hb.png112233":
         return abort(404)
     error = None
-    if request.method == 'POST':
+    form = MemeGeneratorForm()
+    if form.validate_on_submit():
         try:
-            file, mimetype, file_type = meme_generator_request_processor(request)
-            kwargs = {
-                'mimetype': mimetype
-            }
-            if request.values.get('download') == 'Download':
-                kwargs.update({
-                    'as_attachment': True,
-                    'download_name': f'meme_from_vldsx.{file_type}',
-                })
+            f = form.image.data
+            if platform.system() == "Linux":
+                socket = ClamdUnixSocket()
+                try:
+                    result = socket.scan_stream(f)
+                except ClamdConnectionError:
+                    raise MemeGeneratorValidationError(
+                        "Something went wrong :( Please contact me at me@vldsx.com",
+                        status_code=500,
+                    )
+                finally:
+                    socket._close_socket()
+                if result:
+                    raise MemeGeneratorValidationError("Virus detected in file :(")
+            file, mimetype, file_type = MemeGenerator(
+                f, form.text.data, form.text_color.data
+            )()
+            kwargs = {"mimetype": mimetype}
+            if request.values.get("download") == "Download":
+                kwargs.update(
+                    {
+                        "as_attachment": True,
+                        "download_name": f"meme_from_vldsx.{file_type}",
+                    }
+                )
             return send_file(file, **kwargs)
         except MemeGeneratorValidationError as e:
             error = e
 
-    return render_template(
-        "meme_generator.html",
-        page_title=_('memeGeneratorPageTitle'),
-        locale=get_locale(),
-        error_message=str(error) if error else '',
-        meme_text=request.values.get('text') or '',
-        text_color=request.values.get('text_color') or '#ffffff'
-    ), error.status_code if error and error.status_code else 200
+    status = 400 if form.errors else 200
+    return (
+        render_template(
+            "meme_generator.html",
+            page_title=_("memeGeneratorPageTitle"),
+            error_message=str(error) if error else "",
+            meme_text=request.values.get("text") or "",
+            form=form,
+            text_color=request.values.get("text_color") or "#ffffff",
+        ),
+        error.status_code if error and error.status_code else status,
+    )

@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import TextAreaField, SelectField, StringField
 from wtforms.validators import DataRequired, Length
-from wtforms.widgets.html5 import ColorInput
+from wtforms.widgets import ColorInput
 
 from vsx2_change_layout import get_all_layouts
 
@@ -21,12 +21,14 @@ class LayoutForm(FormWithInputField):
             (layout, " ".join(layout.split("_")).upper()) for layout in ALL_LAYOUTS
         ],
         validators=[DataRequired()],
+        default='ru_qwerty'
     )
     destination = SelectField(
         choices=[
             (layout, " ".join(layout.split("_")).upper()) for layout in ALL_LAYOUTS
         ],
         validators=[DataRequired()],
+        default='ua_qwerty'
     )
 
 

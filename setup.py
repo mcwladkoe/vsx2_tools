@@ -2,14 +2,15 @@ from setuptools import setup, find_packages
 
 requires = [
     "cssmin==0.2.0",
-    "flask==2.0.1",
+    "flask==2.2.2",
     "Flask-Assets==2.0",
     "flask_babel==2.0.0",
-    "jsmin==2.2.2",
-    "Pillow==8.3.1",
+    "jsmin==3.0.1",
+    "Pillow==9.3.0",
     "pyclamd==0.4.0",
-    "waitress==2.0.0",
-    "Flask-WTF==0.15.1",
+    "waitress==2.1.2",
+    "Flask-WTF==1.0.1",
+    "WTForms==3.0.1",
     "vsx2_change_layout @ git+https://github.com/mcwladkoe/vsx2_change_layout",
     "vsx2_rotate @ git+https://github.com/mcwladkoe/vsx2_rotate",
 ]

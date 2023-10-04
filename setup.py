@@ -6,7 +6,7 @@ requires = [
     "Flask-Assets==2.0",
     "flask_babel==2.0.0",
     "jsmin==3.0.1",
-    "Pillow==9.3.0",
+    "Pillow==10.0.1",
     "pyclamd==0.4.0",
     "waitress==2.1.2",
     "Flask-WTF==1.0.1",
